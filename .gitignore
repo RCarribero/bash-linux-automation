@@ -1,0 +1,14 @@
+# Editor and OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Temporary test outputs
+Datos.txt
+index.html
+compress.rar
+arch[0-9]*

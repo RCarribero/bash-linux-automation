@@ -1,0 +1,23 @@
+name: Bash Scripts CI
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  lint-and-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate Bash syntax with bash -n
+        run: |
+          echo "Verificando sintaxis de todos los scripts .sh..."
+          find . -name "*.sh" -type f | while read -r script; do
+            echo "Comprobando: $script"
+            bash -n "$script"
+          done
+          echo "Todos los scripts pasaron la validación de sintaxis correctamente."
